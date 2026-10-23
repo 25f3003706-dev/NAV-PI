@@ -1,0 +1,33 @@
+# raspi.yaml
+model:
+  name: raspi_yolo_n
+  input_size: [320, 320]
+  num_classes: 10                # change to your classes
+  backbone: mobilnetv3_small     # or 'cspdarknet_nano'
+  width_mult: 0.25
+  depth_mult: 0.33
+
+lstm:
+  hidden_size: 128
+  num_layers: 1
+  sequence_length: 12            # ~1.5–2.5 s at 5–8 FPS
+  feature_dim: 16                # class_id + conf + cx,cy,w,h + optional emb
+
+train:
+  epochs: 100
+  batch_size: 16                 # lower on RPi if training locally
+  lr: 0.001
+  workers: 4
+  device: cpu                    # or cuda if you train on PC
+
+data:
+  path: datasets/campus
+  train: images/train
+  val: images/val
+  names: ['person', 'bicycle', 'car', ...]   # your classes
+
+inference:
+  conf_thres: 0.35
+  iou_thres: 0.45
+  max_det: 50
+  fps_target: 8
