@@ -1,0 +1,30 @@
+# ROS 2 build output
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Trained models and large data
+ml/models/*
+!ml/models/.gitkeep
+ml/datasets/*
+!ml/datasets/.gitkeep
+*.bag
+*.db3
+*.mcap
+rosbags/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Firmware build output
+firmware/**/build/
+firmware/**/*.elf
+firmware/**/*.bin
+firmware/**/*.hex
+
+# Editor and OS
+.vscode/*
+!.vscode/settings.json
+.DS_Store
