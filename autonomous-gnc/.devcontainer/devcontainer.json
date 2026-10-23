@@ -1,0 +1,13 @@
+{
+  "name": "GNC ROS 2 dev",
+  "image": "osrf/ros:humble-desktop",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "postCreateCommand": "pip install numpy scipy",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-vscode.cpp-tools", "ms-iot.vscode-ros"]
+    }
+  }
+}
